@@ -6,11 +6,11 @@ export type UpcomingAction = ActionType<typeof actions>;
 export type Upcoming = {
   id: number;
   title: string;
-  averageVote: number;
+  vote_average: number;
   overview: string;
-  releaseDate: string;
-  poster: string | null;
-  genres: number[];
+  release_date: string;
+  poster_path: string | null;
+  genre_ids: number[];
 };
 
 export type Dates = {
@@ -22,6 +22,6 @@ export type UpcomingState = {
   page: number | null;
   results: Upcoming[];
   dates: Dates | null;
-  totalPages: number | null;
-  totalResults: number | null;
+  total_pages: number | null;
+  total_results: number | null;
 };

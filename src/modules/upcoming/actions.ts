@@ -1,5 +1,5 @@
 import { createAction } from 'typesafe-actions';
-import { Upcoming } from './types';
+import { UpcomingState } from './types';
 import * as UpcomingApi from '../../lib/api/movies';
 
 export const GET_UPCOMING_LIST = 'upcoming/GET_UPCOMING_LIST';
@@ -10,6 +10,4 @@ export const getUpcomingList = createAction(
   UpcomingApi.getUpcomingList
 )();
 
-export const setUpcomingList = createAction(
-  SET_UPCOMING_LIST
-)<Upcoming | null>();
+export const setUpcomingList = createAction(SET_UPCOMING_LIST)<UpcomingState>();

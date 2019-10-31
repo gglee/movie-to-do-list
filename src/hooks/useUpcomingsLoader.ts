@@ -9,6 +9,7 @@ export default function useUpcomingsLoader() {
   const onGetUpcomingList = useCallback(async () => {
     try {
       const list = await getUpcomingList();
+      console.log(list);
       dispatch(setUpcomingList(list));
     } catch (e) {
       console.log(e);
@@ -17,5 +18,5 @@ export default function useUpcomingsLoader() {
 
   useEffect(() => {
     onGetUpcomingList();
-  });
+  }, []);
 }

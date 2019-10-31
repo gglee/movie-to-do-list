@@ -13,15 +13,15 @@ function MovieCard({ upcoming }: MovieCardProps) {
     <MovieCardBlock>
       <div className="image-content">
         <img
-          src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2${upcoming.poster}`}
+          src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2${upcoming.poster_path}`}
           alt={upcoming.title}
         />
       </div>
       <div className="info">
         <div className="wrapper">
-          <div className="average">{upcoming.averageVote}</div>
+          <div className="average">{upcoming.vote_average}</div>
           <div className="title">{upcoming.title}</div>
-          <div className="release-date">{upcoming.releaseDate}</div>
+          <div className="release-date">{upcoming.release_date}</div>
         </div>
         <div className="overview">{upcoming.overview}</div>
         <div className="ganres"></div>
