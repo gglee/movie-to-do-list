@@ -95,7 +95,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://api.themoviedb.org/",
   "jest": {
     "roots": [
       "<rootDir>/src"
@@ -148,5 +147,6 @@
     "presets": [
       "react-app"
     ]
-  }
+  },
+  "proxy": "https://api.themoviedb.org"
 }
