@@ -1,6 +1,6 @@
 import { createReducer } from 'typesafe-actions';
 import { UpcomingAction, UpcomingState } from './types';
-import { SET_UPCOMING_LIST, ADD_UPCOMING_LIST } from './actions';
+import { SET_UPCOMING_LIST, ADD_UPCOMING_LIST, TOGGLE_HEART } from './actions';
 import produce from 'immer';
 
 const initialState: UpcomingState = {
@@ -34,7 +34,13 @@ const upcoming = createReducer<UpcomingState, UpcomingAction>(initialState, {
       draft.page = action.payload.page;
       draft.results = draft.results.concat(movies);
     });
-  }
+  },
+  [TOGGLE_HEART]: (state, { payload: id }) =>
+    produce(state, draft => {
+      draft.results = draft.results.map(r =>
+        r.id === id ? { ...r, liked: !r.liked } : r
+      );
+    })
 });
 
 export default upcoming;

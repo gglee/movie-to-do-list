@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Upcoming } from '../../modules/upcoming';
 import { ReactComponent as FavoriteIcon } from '../../static/svg/favorite.svg';
 import { ReactComponent as HeartIcon } from '../../static/svg/heart.svg';
+import useUpcomingActions from '../../hooks/useUpcomingActions';
 
 const MovieCardBlock = styled.div`
   margin-top: 16px;
@@ -96,6 +97,7 @@ type MovieCardProps = {
 };
 
 function MovieCard({ upcoming }: MovieCardProps) {
+  const { onToggle } = useUpcomingActions(upcoming.id);
   return (
     <MovieCardBlock>
       <div className="image-content">
@@ -104,7 +106,7 @@ function MovieCard({ upcoming }: MovieCardProps) {
           alt={upcoming.title}
         />
         <div className="watch-button">
-          <div className="icon">
+          <div className="icon" onClick={onToggle}>
             {upcoming.liked ? <FavoriteIcon /> : <HeartIcon />}
           </div>
         </div>
