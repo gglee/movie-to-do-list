@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const HeaderBlock = styled.div`
   width: 100%;
+  box-shadow: rgb(238, 238, 238) 0px 1px 0px 0px;
   .wrapper {
     width: 1200px;
     height: 5rem;

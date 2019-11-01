@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const UpcomingTemplateBlock = styled.div``;
+const UpcomingTemplateBlock = styled.div`
+  width: 1000px;
+  margin: 0 auto;
+  padding-top: 30px;
+`;
 
 type UpcomingTempleteProps = {
   children: React.ReactNode;

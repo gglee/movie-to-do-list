@@ -1,8 +1,89 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Upcoming } from '../../modules/upcoming';
+import { ReactComponent as FavoriteIcon } from '../../static/svg/favorite.svg';
+import { ReactComponent as HeartIcon } from '../../static/svg/heart.svg';
 
-const MovieCardBlock = styled.div``;
+const MovieCardBlock = styled.div`
+  margin-top: 16px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  .image-content {
+    position: relative;
+    width: 185px;
+    height: 278px;
+    line-height: 0;
+    overflow: hidden;
+    img {
+      width: 185px;
+      height: 278px;
+      opacity: 1;
+    }
+    .watch-button {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 3rem;
+      background: #282a35;
+      display: flex;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+  .info {
+    width: 298px;
+    height: 278px;
+    position: relative;
+    padding: 10px 16px 16px 16px;
+    overflow: hidden;
+    .wrapper {
+      display: flex;
+      .average {
+        font-weight: 700;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+      }
+      .title-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-left: 10px;
+        .title {
+          width: 100%;
+          display: block;
+          font-weight: 600;
+          font-size: 1.1em;
+          line-height: 1.1em;
+        }
+        .release-date {
+          color: rgba(0, 0, 0, 0.6);
+          line-height: 1em;
+          font-size: 15px;
+        }
+      }
+    }
+    p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 0;
+      line-height: 1.2em;
+      width: 100%;
+      margin: 0;
+    }
+    .overview {
+      word-wrap: break-word;
+      white-space: normal;
+      color: #4d4d4d;
+      font-size: 11px;
+      line-height: 1.2em;
+      margin-top: 30px;
+    }
+  }
+`;
 
 type MovieCardProps = {
   upcoming: Upcoming;
@@ -16,29 +97,25 @@ function MovieCard({ upcoming }: MovieCardProps) {
           src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2${upcoming.poster_path}`}
           alt={upcoming.title}
         />
+        <div className="watch-button">
+          <div className="icon">
+            {upcoming.liked ? <FavoriteIcon /> : <HeartIcon />}
+          </div>
+        </div>
       </div>
       <div className="info">
         <div className="wrapper">
           <div className="average">{upcoming.vote_average}</div>
-          <div className="title">{upcoming.title}</div>
-          <div className="release-date">{upcoming.release_date}</div>
+          <div className="title-wrapper">
+            <div className="title">{upcoming.title}</div>
+            <div className="release-date">{upcoming.release_date}</div>
+          </div>
         </div>
-        <div className="overview">{upcoming.overview}</div>
+        <p className="overview">{upcoming.overview}</p>
         <div className="ganres"></div>
-        <div className="add-watch"></div>
       </div>
     </MovieCardBlock>
   );
 }
 
-MovieCard.defaultProps = {
-  id: 338967,
-  title: 'Zombieland: Double Tap',
-  averageVote: 7.5,
-  overview:
-    'The group will face a new zombie threat as a new breed of zombie has developed. This new super-zombie type is faster, bigger, and stronger than the previous strain of zombies and harder to kill. These super-zombies have started grouping up into a horde going from city to city leaving a path of destruction behind them.',
-  releaseDate: '2019-10-18',
-  poster: '/pIcV8XXIIvJCbtPoxF9qHMKdRr2.jpg',
-  genres: [28, 35, 27]
-};
 export default MovieCard;

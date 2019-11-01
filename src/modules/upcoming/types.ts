@@ -11,6 +11,7 @@ export type Upcoming = {
   release_date: string;
   poster_path: string | null;
   genre_ids: number[];
+  liked: boolean;
 };
 
 export type Dates = {
