@@ -1,3 +1,7 @@
+# 무비 투두 리스트
+
+타입스크립트와 리덕스를 이용한 토이 프로젝트 입니다.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
