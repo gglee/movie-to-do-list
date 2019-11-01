@@ -4,6 +4,7 @@ import * as UpcomingApi from '../../lib/api/movies';
 
 export const GET_UPCOMING_LIST = 'upcoming/GET_UPCOMING_LIST';
 export const SET_UPCOMING_LIST = 'upcoming/SET_UPCOMING_LIST';
+export const ADD_UPCOMING_LIST = 'upcoming/ADD_UPCOMING_LIST';
 
 export const getUpcomingList = createAction(
   GET_UPCOMING_LIST,
@@ -11,3 +12,5 @@ export const getUpcomingList = createAction(
 )();
 
 export const setUpcomingList = createAction(SET_UPCOMING_LIST)<UpcomingState>();
+
+export const addUpcomingList = createAction(ADD_UPCOMING_LIST)<UpcomingState>();

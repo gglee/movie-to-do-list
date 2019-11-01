@@ -30,6 +30,12 @@ const MovieCardBlock = styled.div`
       display: flex;
       padding-left: 1rem;
       padding-right: 1rem;
+      .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
     }
   }
   .info {

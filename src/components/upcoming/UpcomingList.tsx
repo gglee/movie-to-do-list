@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import MovieCard from '../common/MovieCard';
 import useUpcomings from '../../hooks/useUpcomings';
 import useUpcomingsLoader from '../../hooks/useUpcomingsLoader';
+import useScrollPagination from '../../hooks/useScrollPagination';
+import { safe } from '../../lib/utils';
 
 const UpcomingListBlock = styled.div`
   h2 {
@@ -20,6 +22,9 @@ const UpcomingListBlock = styled.div`
 function UpcomingList() {
   useUpcomingsLoader();
   const upcomings = useUpcomings();
+
+  const offset = safe(() => upcomings!.page! + 1);
+  useScrollPagination({ offset });
 
   if (upcomings.results.length === 0)
     return (

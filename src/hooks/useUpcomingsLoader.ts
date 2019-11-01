@@ -1,15 +1,16 @@
 import { useCallback, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setUpcomingList } from '../modules/upcoming';
 import { getUpcomingList } from '../lib/api/movies';
+import { RootState } from '../modules';
 
 export default function useUpcomingsLoader() {
   const dispatch = useDispatch();
+  const prevList = useSelector((state: RootState) => state.upcoming);
 
   const onGetUpcomingList = useCallback(async () => {
     try {
       const list = await getUpcomingList();
-      console.log(list);
       dispatch(setUpcomingList(list));
     } catch (e) {
       console.log(e);
@@ -17,6 +18,6 @@ export default function useUpcomingsLoader() {
   }, [dispatch]);
 
   useEffect(() => {
-    onGetUpcomingList();
-  }, []);
+    if (prevList.results.length === 0) onGetUpcomingList();
+  }, [prevList]);
 }
