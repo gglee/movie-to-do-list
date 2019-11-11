@@ -12,14 +12,16 @@
 
 # 설치 및 실행방법
 
-! 사전 설치 필요
+1. 깃헙 클론
+
+`$ git clone https://github.com/gglee/movie-to-do-list.git`
+
+2. 사전 설치 필요
 
 - yarn
 
-! 실행 명령어
+3. 실행 명령어
 
-깃헙 클론 후
+`$ yarn`
 
-\$yarn
-
-\$yarn start
+`$ yarn start`
